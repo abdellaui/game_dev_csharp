@@ -47,6 +47,22 @@ public class SceneLoader : MonoBehaviour
         {
             LoadScene(3);
         }
+        else if (Input.GetKeyDown(KeyCode.F5))
+        {
+            LoadScene(4);
+        }
+        else if (Input.GetKeyDown(KeyCode.F6))
+        {
+            LoadScene(5);
+        }
+        else if (Input.GetKeyDown(KeyCode.F7))
+        {
+            LoadScene(6);
+        }
+        else if (Input.GetKeyDown(KeyCode.F8))
+        {
+            LoadScene(7);
+        }
         else if (Input.GetKeyDown(KeyCode.F10))
         {
             LoadNext();
