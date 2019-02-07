@@ -35,7 +35,7 @@ public class Aufgabe3 : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (cards.Count > 0)
+            if (lastCardIndex < 15)
             {
                 Card lastCard = cards[0];
                 cards.RemoveAt(0);
@@ -45,12 +45,13 @@ public class Aufgabe3 : MonoBehaviour
                 g.transform.GetChild(2).GetComponent<SpriteRenderer>().sprite = lastCard.spr;
                 g.name = lastCard.title;
                 cards.Add(lastCard);
+                if (lastCardIndex == 15) lastCardIndex--;
             }
 
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
-            if (lastCardIndex >= 0)w
+            if (lastCardIndex >= 0)
             {
                 gameObjects[lastCardIndex--].SetActive(false);
                 if (lastCardIndex < 0) { lastCardIndex = 0; }
