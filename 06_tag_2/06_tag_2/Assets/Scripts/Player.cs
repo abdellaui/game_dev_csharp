@@ -9,7 +9,6 @@ public class Player : MonoBehaviour
     [SerializeField] Text deathsText = default;
     [SerializeField] private bool canJump = false;
     private float jumpSpeed = 12f;
-    private float isJumping = -1f;
     private float speed = 5f;
     private Rigidbody2D rb = default;
 
@@ -29,17 +28,18 @@ public class Player : MonoBehaviour
         canJump |= collision.gameObject.tag == "Ground";
         if (collision.gameObject.tag == "Boden")
         {
-            Hit();
+            Hit(collision);
             transform.position = Vector3.zero;
         }
 
         if (collision.gameObject.tag == "Enemy")
         {
-            Hit();
+            Hit(collision);
+            Debug.Log(collision.transform.name);
         }
     }
 
-    void Hit()
+    void Hit(Collision2D collision)
     {
 
         PlayerPrefs.SetInt("life", --life);
@@ -48,7 +48,16 @@ public class Player : MonoBehaviour
             Die();
         }
         else {
-            rb.AddForce(Vector2.left * 7, ForceMode2D.Impulse);
+            //compute vector (length one) from game object's pivot to the player's pivot:
+            Vector3 hitVector = (collision.transform.position - transform.position).normalized;
+
+            //if you want only horizontal plane movement, disable y-component of hitVector:
+            hitVector = (collision.transform.position - transform.position);
+            hitVector.y = 0;
+            hitVector = hitVector.normalized;
+
+            rb.AddForce(hitVector * 100);
+            // rb.AddForce(Vector2.left * 7, ForceMode2D.Impulse);
         }
     }
     void Die()

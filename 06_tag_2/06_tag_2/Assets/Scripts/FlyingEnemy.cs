@@ -5,14 +5,19 @@ using System.Linq;
 public class FlyingEnemy : MonoBehaviour
 {
 
-    [SerializeField] GameObject parent = default;
-    private GameObject[] childs = default;
+    public GameObject wayPoints = default;
+    [SerializeField] private List<Transform> childs = default;
     private Vector2 going = default;
+    private int index = -1;
     // Start is called before the first frame update
     void Start()
     {
-        childs = parent.GetComponentsInChildren<GameObject>();
-        Debug.Log(childs.Length);
+        wayPoints = GameObject.FindGameObjectWithTag("WayPoint");
+        foreach (Transform child in wayPoints.transform)
+        {
+            childs.Add(child);
+        }
+        Debug.Log(childs.Count);
         going = new Vector2(transform.position.x, transform.position.y);
     }
 
@@ -22,13 +27,12 @@ public class FlyingEnemy : MonoBehaviour
         if (new Vector2(transform.position.x, transform.position.y).Equals(going))
         {
 
-            if (childs.Length > 0)
+            if (childs.Count > 0 && ++index < childs.Count && index >= 0)
             {
-                going = new Vector2(childs[0].gameObject.transform.position.x, childs[0].gameObject.transform.position.y);
-               childs.s
+                going = new Vector2(childs[index].position.x, childs[index].position.y);
             }
             else
-            {
+            {   
                 Destroy(gameObject);
             }
         }

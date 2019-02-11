@@ -48,8 +48,6 @@ public class SceneLoader : MonoBehaviour
     {
         m_slider = GameObject.FindWithTag("GlobalSlider").GetComponent<Slider>();
         maxScene = SceneManager.sceneCountInBuildSettings;
-        Debug.Log(maxScene);
-
     }
 
     // Update is called once per frame
