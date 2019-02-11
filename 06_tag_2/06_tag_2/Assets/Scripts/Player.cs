@@ -37,6 +37,12 @@ public class Player : MonoBehaviour
             Hit(collision);
             Debug.Log(collision.transform.name);
         }
+
+
+        if (collision.gameObject.tag == "Finish")
+        {
+            new SceneLoader().LoadNext();
+        }
     }
 
     void Hit(Collision2D collision)
