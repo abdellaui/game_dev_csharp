@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8999696616574711168}
   - component: {fileID: 8999696616574711171}
   - component: {fileID: 8999696616574711170}
+  - component: {fileID: 1244975538698889338}
   m_Layer: 0
   m_Name: enemyFlying_1
   m_TagString: Enemy
@@ -109,5 +110,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ded28caa692b489a97d58ba552be996, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parent: {fileID: 0}
+  wayPoints: {fileID: 0}
   childs: []
+--- !u!50 &1244975538698889338
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8999696616574711173}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

@@ -17,7 +17,6 @@ public class FlyingEnemy : MonoBehaviour
         {
             childs.Add(child);
         }
-        Debug.Log(childs.Count);
         going = new Vector2(transform.position.x, transform.position.y);
     }
 
