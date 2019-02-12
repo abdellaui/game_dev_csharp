@@ -31,6 +31,7 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadScene(int index)
     {
+        mSliderValue = 1.0f;
         SceneManager.LoadScene(index % maxScene);
     }
 

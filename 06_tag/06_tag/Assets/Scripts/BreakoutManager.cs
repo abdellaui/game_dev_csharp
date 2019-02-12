@@ -10,7 +10,7 @@ public class BreakoutManager : MonoBehaviour
     public void OnPlayAgainClicked() {
         currentLevel = 0;
         Debug.Log("s");
-        new SceneLoader().LoadScene(0);
+        SceneLoader.instance.LoadScene(0);
     }
     // Start is called before the first frame update
     void Start()
