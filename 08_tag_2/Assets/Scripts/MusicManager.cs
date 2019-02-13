@@ -70,7 +70,7 @@ public class MusicManager : MonoBehaviour
 
     public void PlayShot(int index) {
         int shotIndex = index % musics.Count;
-        player.PlayOneShot(musics[shotIndex]);
+        player.PlayOneShot(musics[shotIndex], 0.2f);
     }
     public void Play(int index, float time = 1.0f) {
         currentMusicIndex = index % musics.Count;

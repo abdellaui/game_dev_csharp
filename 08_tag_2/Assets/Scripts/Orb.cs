@@ -7,7 +7,6 @@ public class Orb : MonoBehaviour
     [SerializeField] int type = 0;
     void OnTriggerEnter2D(Collider2D collision)
     {
-        MusicManager.instance.PlayShot(7);
         Destroy(gameObject);
     }
     // Start is called before the first frame update

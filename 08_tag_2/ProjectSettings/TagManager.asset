@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Orb
   - Stars
+  - WayPoint
+  - MainPlanet
   layers:
   - Default
   - TransparentFX

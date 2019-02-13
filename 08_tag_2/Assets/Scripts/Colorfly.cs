@@ -6,14 +6,18 @@ public class Colorfly : MonoBehaviour
 {
     float speed = 2.0f;
     Animator anim;
+    int shotIndex = 0;
+    bool levelDone = false;
 
     [SerializeField] TrailRenderer trail1 = default;
     [SerializeField] TrailRenderer trail2 = default;
-    void OnCollisionEnter2D(Collision2D collision)
+
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.gameObject.name + "p");
-        if (collision.gameObject.tag == "Orb") {
-            MusicManager.instance.PlayShot(7);
+        if (collision.gameObject.tag == "Orb")
+        {
+            MusicManager.instance.PlayShot(6 + shotIndex++);
+            shotIndex = shotIndex % 4;
         }
     }
 
@@ -47,5 +51,7 @@ public class Colorfly : MonoBehaviour
         {
             transform.position += Vector3.up * Time.deltaTime * speed;
         }
+
+
     }
 }
