@@ -2,20 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 public class BackgroundMusic : MonoBehaviour
 {
     [SerializeField] List<AudioClip> musics = default;
     [SerializeField] Slider bgmSoundSlider;
+    [SerializeField] AudioMixer audioMixer;
     AudioSource player = default;
     // Start is called before the first frame update
     void Start()
     {
         player = GetComponent<AudioSource>();
     }
-    void OnSliderChangeValue()
+    public void OnSliderChangeValue()
     {
-   
-        player.volume = bgmSoundSlider.value;
+
+        audioMixer.SetFloat("masterVolSoundFX", bgmSoundSlider.value*100-80);
     }
     // Update is called once per frame
     void Update()

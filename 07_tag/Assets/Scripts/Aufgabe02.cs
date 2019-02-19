@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 public class Aufgabe02 : MonoBehaviour
 {
     [SerializeField] Text musicMode = default;
     [SerializeField] AudioClip bgm = default;
     [SerializeField] List<AudioClip> musics = default;
     [SerializeField] Slider bgmSoundSlider;
+    [SerializeField] AudioMixer audioMixer;
 
 
     float maxVol = 1.0f;
@@ -15,9 +17,9 @@ public class Aufgabe02 : MonoBehaviour
     AudioSource player = default;
     bool isPlaying = true;
 
-    void OnSliderChangeValue() {
+    public void OnSliderChangeValue() {
         maxVol = bgmSoundSlider.value;
-        player.volume = maxVol;
+        audioMixer.SetFloat("masterVolBGM", maxVol*100-80);
     }
     IEnumerator FadeOut(float time)
     {
@@ -66,9 +68,9 @@ public class Aufgabe02 : MonoBehaviour
     void PlayIndex()
     {
         StopAllCoroutines();
-        StartCoroutine(FadeOut(1.0f));
+        StartCoroutine(FadeOut(3.0f));
         player.clip = musics[currentMusicIndex % musics.Count];
-        StartCoroutine(FadeIn(1.0f));
+        StartCoroutine(FadeIn(3.0f));
     }
     // Update is called once per frame
     void Update()
@@ -81,12 +83,12 @@ public class Aufgabe02 : MonoBehaviour
             if (isPlaying)
             {
                 musicMode.gameObject.SetActive(false);
-                StartCoroutine(FadeIn(2.0f));
+                StartCoroutine(FadeIn(3.0f));
             }
             else
             {
                 musicMode.gameObject.SetActive(true);
-                StartCoroutine(FadeOut(2.0f));
+                StartCoroutine(FadeOut(3.0f));
             }
         }
 

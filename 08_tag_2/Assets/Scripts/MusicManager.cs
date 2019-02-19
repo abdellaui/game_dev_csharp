@@ -13,7 +13,7 @@ public class MusicManager : MonoBehaviour
     bool isPlaying = true;
 
   
-    IEnumerator FadeOut(float time)
+    public IEnumerator FadeOut(float time)
     {
 
         while (player.volume > 0)
@@ -24,7 +24,7 @@ public class MusicManager : MonoBehaviour
         player.Stop();
     }
 
-    IEnumerator FadeIn(float time)
+   public IEnumerator FadeIn(float time)
     {
         player.Play();
         while (player.volume < maxVol)

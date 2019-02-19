@@ -364,7 +364,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1a853ce6c36647f489cb78b687f73afd, type: 3}
   - {fileID: 8300000, guid: a33a2b4835a45864695837c684d4bce6, type: 3}
   - {fileID: 8300000, guid: 4591b2493f93ae84aa8b988f65c7358d, type: 3}
-  bgmSoundSlider: {fileID: 1331514909}
+  bgmSoundSlider: {fileID: 597544700}
+  audioMixer: {fileID: 24100000, guid: 3e0bca51dbaa3408fb8ee9a318186f7d, type: 2}
 --- !u!82 &332856650
 AudioSource:
   m_ObjectHideFlags: 0
@@ -628,7 +629,18 @@ MonoBehaviour:
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 332856649}
+        m_MethodName: OnSliderChangeValue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &677359307
@@ -667,7 +679,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 0a512f566fa8bf649ae61ef6c90e2985, type: 3}
   - {fileID: 8300000, guid: 4d4e2106d01510c48b847867f64c51f5, type: 3}
   - {fileID: 8300000, guid: 724f46f37bfa19d4f9ac9c214846eeff, type: 3}
-  bgmSoundSlider: {fileID: 597544700}
+  bgmSoundSlider: {fileID: 1331514909}
+  audioMixer: {fileID: 24100000, guid: 3e0bca51dbaa3408fb8ee9a318186f7d, type: 2}
 --- !u!4 &677359309
 Transform:
   m_ObjectHideFlags: 0
@@ -1012,7 +1025,18 @@ MonoBehaviour:
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 677359308}
+        m_MethodName: OnSliderChangeValue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &1428305231

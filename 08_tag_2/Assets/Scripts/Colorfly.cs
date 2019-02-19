@@ -31,8 +31,8 @@ public class Colorfly : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        trail1.transform.position = transform.position;
-        trail2.transform.position = transform.position;
+        trail1.transform.position = transform.position + (Vector3.right * 0.15f);
+        trail2.transform.position = transform.position - (Vector3.right * 0.15f);
         GameObject.FindWithTag("Stars").transform.position = transform.position;
         anim.SetFloat("axisHorizontal", Input.GetAxis("Horizontal"));
         if (Input.GetAxis("Horizontal") < 0)
